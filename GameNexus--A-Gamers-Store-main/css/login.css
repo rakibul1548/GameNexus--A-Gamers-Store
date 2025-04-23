@@ -1,0 +1,62 @@
+body.login-body {
+    background: url('https://wallpaperaccess.com/full/387011.jpg') no-repeat center center/cover;
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-container {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ffaa00;
+    width: 90%;
+    max-width: 400px;
+  }
+  .login-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+  .login-container h1 span {
+    color: #ffaa00;
+  }
+  .login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #1f1f1f;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 6px;
+  }
+  .login-container input:focus {
+    border-color: #ffaa00;
+    outline: none;
+  }
+  .login-container button {
+    width: 100%;
+    padding: 12px;
+    background: #ffaa00;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  .login-container button:hover {
+    background: #ffcc00;
+  }
+  .login-container p {
+    text-align: center;
+    margin-top: 15px;
+  }
+  .login-container a {
+    color: #ffaa00;
+    text-decoration: none;
+  }
+  
