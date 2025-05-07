@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Tips & Builds Hub | Gaming Strategies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --accent: #fd79a8;
+            --success: #00b894;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .filter-section {
+            background-color: #1e1e1e;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-title {
+            margin-bottom: 1rem;
+            color: var(--light);
+            font-size: 1.2rem;
+        }
+
+        .game-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .filter-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            background-color: var(--primary);
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary);
+            font-weight: bold;
+        }
+
+        .search-bar {
+            margin-top: 1rem;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 30px;
+            border: none;
+            background-color: #333;
+            color: white;
+            padding-left: 3rem;
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        .top-gamer {
+            background: linear-gradient(135deg, #0984e3, #74b9ff);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .top-gamer-badge {
+            background-color: #fdcb6e;
+            color: #2d3436;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-right: 1rem;
+        }
+
+        .top-gamer-info {
+            flex-grow: 1;
+        }
+
+        .top-gamer-name {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .top-gamer-stats {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tip-card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .tip-media {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tip-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .tip-card:hover .tip-media img {
+            transform: scale(1.05);
+        }
+
+        .tip-media iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .game-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .media-type {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .tip-content {
+            padding: 1.5rem;
+        }
+
+        .tip-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .tip-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .author-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            object-fit: cover;
+        }
+
+        .tip-text {
+            color: #ddd;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .tip-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #333;
+            padding-top: 1rem;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: #aaa;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .action-btn i {
+            margin-right: 0.5rem;
+        }
+
+        .action-btn:hover {
+            color: white;
+        }
+
+        .like-btn.liked {
+            color: var(--accent);
+        }
+
+        .save-btn.saved {
+            color: var(--success);
+        }
+
+        .submit-tip-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 100;
+            border: none;
+        }
+
+        .submit-tip-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: #1e1e1e;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 4px;
+            border: 1px solid #333;
+            background-color: #2d2d2d;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background-color: #5a4bcf;
+        }
+
+        .media-upload {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .media-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .media-option input[type="radio"] {
+            accent-color: var(--primary);
+        }
+
+        .media-option label {
+            color: white;
+        }
+
+        .media-preview {
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .media-preview img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 4px;
+        }
+
+        /* Success Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--success);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .notification i {
+            font-size: 1.5rem;
+        }
+
+        /* Profile dropdown */
+        .profile-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #1e1e1e;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #333;
+        }
+
+        .profile-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Confirmation Page Styles */
+        .confirmation-container {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .confirmation-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 1.5rem;
+        }
+
+        .confirmation-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .confirmation-text {
+            color: #ddd;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .confirmation-details {
+            background-color: #2d2d2d;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .detail-item {
+            margin-bottom: 1rem;
+        }
+
+        .detail-label {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .detail-value {
+            color: white;
+            font-size: 1rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a4bcf;
+        }
+
+        .btn-secondary {
+            background-color: #333;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #444;
+        }
+
+        /* Full Review Modal */
+        .full-review-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 2rem 0;
+        }
+
+        .full-review-content {
+            background-color: #1e1e1e;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .full-review-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .full-review-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .full-review-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .full-review-game {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .full-review-author {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        .full-review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+        }
+
+        .full-review-media {
+            margin: 1.5rem 0;
+            max-height: 500px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .full-review-media img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .full-review-media iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        .full-review-text {
+            color: #ddd;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 2rem 0;
+            white-space: pre-line;
+        }
+
+        .full-review-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+        }
+
+        .full-review-likes {
+            display: flex;
+            align-items: center;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .full-review-date {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .game-filters {
+                justify-content: center;
+            }
+
+            .confirmation-container {
+                margin: 2rem 1rem;
+                padding: 1.5rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .full-review-content {
+                padding: 1.5rem;
+            }
+
+            .full-review-title {
+                font-size: 1.5rem;
+            }
+
+            .full-review-media iframe {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">Pro Tips <span>& BUILD</span></a>
+            <div class="profile-dropdown">
+                <button class="profile-btn">
+                    <img src="https://th.bing.com/th/id/OIP.J7PA3EDmPtKOn18_Zr5LjAHaHU?pid=ImgDet&w=474&h=468&rs=1" alt="Profile" class="profile-img">
+                    <span>GameNexus</span>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#"><i class="fas fa-user"></i> My Profile</a>
+                    <a href="#"><i class="fas fa-bookmark"></i> Saved Tips</a>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container" id="mainContent">
+        <div class="filter-section">
+            <h2 class="filter-title">Find Tips for Your Game</h2>
+            <div class="game-filters">
+                <button class="filter-btn active" data-game="all">All Games</button>
+                <button class="filter-btn" data-game="egypt-wars">Egypt and World Space Wars</button>
+                <button class="filter-btn" data-game="return-cars">Return of the Cars</button>
+                <button class="filter-btn" data-game="cyberpunk">Cyberpunk 2077</button>
+                <button class="filter-btn" data-game="lords-fallen">Lords of the Fallen</button>
+                <button class="filter-btn" data-game="gta5">GTA 5</button>
+                <button class="filter-btn" data-game="uncharted4">Uncharted 4</button>
+            </div>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for tips, builds, or strategies...">
+            </div>
+        </div>
+
+        <div class="top-gamer">
+            <div class="top-gamer-badge">Top Gamer</div>
+            <div class="top-gamer-info">
+                <div class="top-gamer-name">ShadowAssassin99</div>
+                <div class="top-gamer-stats">3,245 likes this week • 18 tips shared</div>
+            </div>
+            <i class="fas fa-trophy" style="font-size: 2rem; color: #fdcb6e;"></i>
+        </div>
+
+        <div class="tips-grid">
+            <!-- Egypt and World Space Wars Tip -->
+            <div class="tip-card" data-game="egypt-wars">
+                <div class="tip-media">
+                    <img src="https://cdn1.ethugamer.com/wp-content/uploads/2017/12/18092227/1-1-970x570.jpg" alt="Egypt and World Space Wars">
+                    <div class="game-tag">Egypt Space Wars</div>
+                    <div class="media-type">Screenshot</div>
+                </div>
+                <div class="tip-content">
+                    <h3 class="tip-title">Ancient Tech Weapon Locations</h3>
+                    <div class="tip-author">
+                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Author" class="author-avatar">
+                        <span>PharaohHunter</span>
+                    </div>
+                    <p class="tip-text">
+                        Discover all hidden ancient Egyptian tech weapons across the solar system. 
+                        The Plasma Staff of Ra is particularly powerful against the Martian forces. 
+                        Look for hidden chambers in the Great Pyramid level...
+                    </p>
+                    <div class="tip-actions">
+                        <button class="action-btn like-btn">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>892</span>
+                        </button>
+                        <button class="action-btn save-btn">
+                            <i class="fas fa-bookmark"></i>
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Return of the Cars Tip -->
+            <div class="tip-card" data-game="return-cars">
+                <div class="tip-media">
+                    <iframe src="https://www.youtube.com/embed/example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="game-tag">Return of the Cars</div>
+                    <div class="media-type">YouTube</div>
+                </div>
+                <div class="tip-content">
+                    <h3 class="tip-title">Secret Vehicle Unlocks</h3>
+                    <div class="tip-author">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Author" class="author-avatar">
+                        <span>Gearhead99</span>
+                    </div>
+                    <p class="tip-text">
+                        Unlock the legendary Phoenix sports car by completing all stunt jumps in under 4 hours. 
+                        The hidden garage in the desert map contains this beast with maxed-out stats. 
+                        Here's the optimal route to collect all jumps efficiently...
+                    </p>
+                    <div class="tip-actions">
+                        <button class="action-btn like-btn liked">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>1,542</span>
+                        </button>
+                        <button class="action-btn save-btn saved">
+                            <i class="fas fa-bookmark"></i>
+                            <span>Saved</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cyberpunk 2077 Tip -->
+            <div class="tip-card" data-game="cyberpunk">
+                <div class="tip-media">
+                    <img src="https://th.bing.com/th/id/R.826ec3cf91d834804409ffff247b3264?rik=BMdV8QR0mH9LrQ&pid=ImgRaw&r=0" alt="Cyberpunk 2077">
+                    <div class="game-tag">Cyberpunk 2077</div>
+                    <div class="media-type">Screenshot</div>
+                </div>
+                <div class="tip-content">
+                    <h3 class="tip-title">Netrunner God Build 2.0</h3>
+                    <div class="tip-author">
+                        <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Author" class="author-avatar">
+                        <span>NetQueen</span>
+                    </div>
+                    <p class="tip-text">
+                        After the 2.0 update, this build makes you unstoppable. 
+                        Focus on Intelligence and Cool attributes first, then grab these specific quickhacks in order. 
+                        By level 30, you can clear entire buildings without stepping inside...
+                    </p>
+                    <div class="tip-actions">
+                        <button class="action-btn like-btn">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>3,781</span>
+                        </button>
+                        <button class="action-btn save-btn">
+                            <i class="fas fa-bookmark"></i>
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lords of the Fallen Tip -->
+            <div class="tip-card" data-game="lords-fallen">
+                <div class="tip-media">
+                    <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="game-tag">Lords of the Fallen</div>
+                    <div class="media-type">YouTube</div>
+                </div>
+                <div class="tip-content">
+                    <h3 class="tip-title">Umbral Ending Speedrun Route</h3>
+                    <div class="tip-author">
+                        <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Author" class="author-avatar">
+                        <span>SoulsSpeedrunner</span>
+                    </div>
+                    <p class="tip-text">
+                        This optimized path skips 60% of the game while still achieving the secret Umbral ending. 
+                        Requires precise jumps and enemy skips. 
+                        The key is to grab the Shadow Gem early from the hidden chest in the Catacombs...
+                    </p>
+                    <div class="tip-actions">
+                        <button class="action-btn like-btn liked">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>2,045</span>
+                        </button>
+                        <button class="action-btn save-btn">
+                            <i class="fas fa-bookmark"></i>
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GTA 5 Tip -->
+            <div class="tip-card" data-game="gta5">
+                <div class="tip-media">
+                    <img src="https://www.newgamenetwork.com/images/uploads/gallery/GTA5/gta5_05.jpg" alt="GTA 5">
+                    <div class="game-tag">GTA 5</div>
+                    <div class="media-type">Screenshot</div>
+                </div>
+                <div class="tip-content">
+                    <h3 class="tip-title">Cayo Perico Elite Challenge Every Time</h3>
+                    <div class="tip-author">
+                        <img src="https://randomuser.me/api/portraits/men/90.jpg" alt="Author" class="author-avatar">
+                        <span>HeistMaster</span>
+                    </div>
+                    <p class="tip-text">
+                        My foolproof method to complete the Cayo Perico heist in under 10 minutes with full bags. 
+                        Uses the drainage tunnel entry but with a specific weapon loadout that makes the compound guards trivial. 
+                        Works regardless of primary target...
+                    </p>
+                    <div class="tip-actions">
+                        <button class="action-btn like-btn">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>5,128</span>
+                        </button>
+                        <button class="action-btn save-btn saved">
+                            <i class="fas fa-bookmark"></i>
+                            <span>Saved</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Uncharted 4 Tip -->
+            <div class="tip-card" data-game="uncharted4">
+                <div class="tip-media">
+                    <iframe src="https://www.youtube.com/embed/example3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="game-tag">Uncharted 4</div>
+                    <div class="media-type">YouTube</div>
+                </div>
+                <div class="tip-content">
+                    <h3 class="tip-title">Crushing Difficulty Cheese Spots</h3>
+                    <div class="tip-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Author" class="author-avatar">
+                        <span>TreasureHunter</span>
+                    </div>
+                    <p class="tip-text">
+                        Discover all the "safe spots" where enemies can't hit you in each combat encounter. 
+                        These positions let you pick off enemies without taking damage, making Crushing difficulty much more manageable. 
+                        Particularly useful in the ship graveyard chapter...
+                    </p>
+                    <div class="tip-actions">
+                        <button class="action-btn like-btn">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>1,876</span>
+                        </button>
+                        <button class="action-btn save-btn">
+                            <i class="fas fa-bookmark"></i>
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Page -->
+    <div class="confirmation-container" id="confirmationPage" style="display: none;">
+        <div class="confirmation-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="confirmation-title">Tip Submitted for Review!</h2>
+        <p class="confirmation-text">
+            Thank you for sharing your gaming expertise with the community. Our moderators will review your tip 
+            to ensure it meets our quality guidelines before publishing.
+        </p>
+        
+        <div class="confirmation-details">
+            <div class="detail-item">
+                <div class="detail-label">TIP TITLE</div>
+                <div class="detail-value" id="confirmationTitle"></div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">GAME</div>
+                <div class="detail-value" id="confirmationGame"></div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">SUBMITTED BY</div>
+                <div class="detail-value">GameNexus</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">SUBMISSION TIME</div>
+                <div class="detail-value" id="confirmationTime"></div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-primary" id="submitAnotherBtn">
+                <i class="fas fa-plus"></i> Submit Another Tip
+            </button>
+            <button class="btn btn-secondary" id="backToHomeBtn">
+                <i class="fas fa-home"></i> Back to Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Full Review Modal -->
+    <div class="full-review-modal" id="fullReviewModal">
+        <div class="full-review-content">
+            <button class="full-review-close" id="closeFullReviewBtn">&times;</button>
+            <div class="full-review-header">
+                <h2 class="full-review-title" id="fullReviewTitle">Ancient Tech Weapon Locations</h2>
+                <span class="full-review-game" id="fullReviewGame">Egypt and World Space Wars</span>
+                <div class="full-review-author">
+                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Author" class="full-review-avatar">
+                    <div>
+                        <div>PharaohHunter</div>
+                        <div class="full-review-date">Posted on June 15, 2023</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="full-review-media" id="fullReviewMedia">
+                <img src="https://cdn1.ethugamer.com/wp-content/uploads/2017/12/18092227/1-1-970x570.jpg" alt="Egypt and World Space Wars">
+            </div>
+            
+            <div class="full-review-text" id="fullReviewText">
+                Discover all hidden ancient Egyptian tech weapons across the solar system. 
+                The Plasma Staff of Ra is particularly powerful against the Martian forces. 
+                Look for hidden chambers in the Great Pyramid level.
+
+                Here's a detailed breakdown of all weapon locations:
+
+                1. Plasma Staff of Ra - Found in the hidden chamber beneath the Sphinx. You'll need to solve the constellation puzzle on the wall first.
+
+                2. Anubis Blade - Located in the Mars pyramid complex. Defeat the guardian boss in the central chamber to claim this weapon.
+
+                3. Horus Shield - Hidden in the asteroid belt level. Look for a glowing rock formation near waypoint Delta-7.
+
+                Each weapon has unique abilities:
+                - Plasma Staff: Charged shot that penetrates multiple enemies
+                - Anubis Blade: Life-steal effect on hit
+                - Horus Shield: Creates a temporary energy barrier
+
+                Pro Tip: Combine the Plasma Staff with the Osiris armor set for a 30% damage boost against mechanical enemies.
+            </div>
+            
+            <div class="full-review-stats">
+                <div class="full-review-likes">
+                    <i class="fas fa-thumbs-up"></i>
+                    <span>892 Likes</span>
+                </div>
+                <button class="action-btn save-btn saved">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Saved</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <button class="submit-tip-btn" id="submitTipBtn">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- Submit Tip Modal -->
+    <div class="modal" id="submitTipModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Share Your Pro Tip</h3>
+                <button class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <form id="tipForm">
+                <div class="form-group">
+                    <label for="tipTitle" class="form-label">Tip Title</label>
+                    <input type="text" id="tipTitle" class="form-input" placeholder="e.g., 'Best Sova Recon Bolt Lineups for Ascent'" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="gameSelect" class="form-label">Game</label>
+                    <select id="gameSelect" class="form-select" required>
+                        <option value="">Select a game</option>
+                        <option value="valorant">Valorant</option>
+                        <option value="elden-ring">Elden Ring</option>
+                        <option value="fortnite">Fortnite</option>
+                        <option value="league">League of Legends</option>
+                        <option value="cod">Call of Duty</option>
+                        <option value="apex">Apex Legends</option>
+                        <option value="dota">Dota 2</option>
+                        <option value="egypt-wars">Egypt and World Space Wars</option>
+                        <option value="return-cars">Return of the Cars</option>
+                        <option value="cyberpunk">Cyberpunk 2077</option>
+                        <option value="lords-fallen">Lords of the Fallen</option>
+                        <option value="gta5">GTA 5</option>
+                        <option value="uncharted4">Uncharted 4</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tipContent" class="form-label">Tip Details</label>
+                    <textarea id="tipContent" class="form-textarea" placeholder="Explain your tip in detail. Include specific strategies, builds, or techniques..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Add Media</label>
+                    <div class="media-upload">
+                        <div class="media-option">
+                            <input type="radio" id="mediaNone" name="mediaType" value="none" checked>
+                            <label for="mediaNone">No Media</label>
+                        </div>
+                        <div class="media-option">
+                            <input type="radio" id="mediaImage" name="mediaType" value="image">
+                            <label for="mediaImage">Upload Image/Screenshot</label>
+                        </div>
+                        <div class="media-option">
+                            <input type="radio" id="mediaYoutube" name="mediaType" value="youtube">
+                            <label for="mediaYoutube">YouTube Video URL</label>
+                        </div>
+                        <div class="media-option">
+                            <input type="radio" id="mediaTwitch" name="mediaType" value="twitch">
+                            <label for="mediaTwitch">Twitch Clip URL</label>
+                        </div>
+                    </div>
+                    <div id="mediaInputContainer" style="margin-top: 1rem; display: none;">
+                        <input type="text" id="mediaUrl" class="form-input" placeholder="Paste URL here">
+                        <div class="media-preview" id="mediaPreview">
+                            <img id="previewImage" src="" alt="Preview" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="form-submit">Submit Tip for Review</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Notification -->
+    <div class="notification" id="successNotification">
+        <i class="fas fa-check-circle"></i>
+        <span>Tip submitted successfully! Our moderators will review it soon.</span>
+    </div>
+
+    <script>
+        // DOM Elements
+        const submitTipBtn = document.getElementById('submitTipBtn');
+        const submitTipModal = document.getElementById('submitTipModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const tipForm = document.getElementById('tipForm');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const tipCards = document.querySelectorAll('.tip-card');
+        const likeBtns = document.querySelectorAll('.like-btn');
+        const saveBtns = document.querySelectorAll('.save-btn');
+        const mediaOptions = document.querySelectorAll('input[name="mediaType"]');
+        const mediaInputContainer = document.getElementById('mediaInputContainer');
+        const mediaUrlInput = document.getElementById('mediaUrl');
+        const mediaPreview = document.getElementById('mediaPreview');
+        const previewImage = document.getElementById('previewImage');
+        const successNotification = document.getElementById('successNotification');
+        const mainContent = document.getElementById('mainContent');
+        const confirmationPage = document.getElementById('confirmationPage');
+        const confirmationTitle = document.getElementById('confirmationTitle');
+        const confirmationGame = document.getElementById('confirmationGame');
+        const confirmationTime = document.getElementById('confirmationTime');
+        const submitAnotherBtn = document.getElementById('submitAnotherBtn');
+        const backToHomeBtn = document.getElementById('backToHomeBtn');
+        const searchInput = document.querySelector('.search-bar input');
+        const fullReviewModal = document.getElementById('fullReviewModal');
+        const closeFullReviewBtn = document.getElementById('closeFullReviewBtn');
+        const fullReviewTitle = document.getElementById('fullReviewTitle');
+        const fullReviewGame = document.getElementById('fullReviewGame');
+        const fullReviewMedia = document.getElementById('fullReviewMedia');
+        const fullReviewText = document.getElementById('fullReviewText');
+
+        // Sample full review content for each tip
+        const fullReviews = {
+            'egypt-wars': {
+                title: 'Ancient Tech Weapon Locations',
+                game: 'Egypt and World Space Wars',
+                author: 'PharaohHunter',
+                avatar: 'https://randomuser.me/api/portraits/women/28.jpg',
+                date: 'Posted on June 15, 2023',
+                media: '<img src="https://cdn1.ethugamer.com/wp-content/uploads/2017/12/18092227/1-1-970x570.jpg" alt="Egypt and World Space Wars">',
+                text: `Discover all hidden ancient Egyptian tech weapons across the solar system. 
+The Plasma Staff of Ra is particularly powerful against the Martian forces. 
+Look for hidden chambers in the Great Pyramid level.
+
+Here's a detailed breakdown of all weapon locations:
+
+1. Plasma Staff of Ra - Found in the hidden chamber beneath the Sphinx. You'll need to solve the constellation puzzle on the wall first.
+
+2. Anubis Blade - Located in the Mars pyramid complex. Defeat the guardian boss in the central chamber to claim this weapon.
+
+3. Horus Shield - Hidden in the asteroid belt level. Look for a glowing rock formation near waypoint Delta-7.
+
+Each weapon has unique abilities:
+- Plasma Staff: Charged shot that penetrates multiple enemies
+- Anubis Blade: Life-steal effect on hit
+- Horus Shield: Creates a temporary energy barrier
+
+Pro Tip: Combine the Plasma Staff with the Osiris armor set for a 30% damage boost against mechanical enemies.`,
+                likes: '892'
+            },
+            'return-cars': {
+                title: 'Secret Vehicle Unlocks',
+                game: 'Return of the Cars',
+                author: 'Gearhead99',
+                avatar: 'https://randomuser.me/api/portraits/men/45.jpg',
+                date: 'Posted on May 22, 2023',
+                media: '<iframe src="https://www.youtube.com/embed/example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                text: `Unlock the legendary Phoenix sports car by completing all stunt jumps in under 4 hours. 
+The hidden garage in the desert map contains this beast with maxed-out stats. 
+Here's the optimal route to collect all jumps efficiently:
+
+1. Start in Downtown - Complete the 3 jumps in this area first (rooftop, bridge, and construction site).
+
+2. Move to Industrial Zone - 2 jumps here (warehouse ramp and train yard).
+
+3. Head to Mountain Pass - The most challenging jump is here, but with the right speed (around 120mph), you can make it.
+
+The Phoenix has these stats:
+- Top Speed: 9.5/10
+- Acceleration: 10/10
+- Handling: 8.5/10
+- Nitro Duration: 12 seconds
+
+Bonus: If you complete all jumps in under 3 hours, you'll also unlock the golden paint job for the Phoenix!`,
+                likes: '1,542'
+            },
+            'cyberpunk': {
+                title: 'Netrunner God Build 2.0',
+                game: 'Cyberpunk 2077',
+                author: 'NetQueen',
+                avatar: 'https://randomuser.me/api/portraits/women/33.jpg',
+                date: 'Posted on September 10, 2023',
+                media: '<img src="https://th.bing.com/th/id/R.826ec3cf91d834804409ffff247b3264?rik=BMdV8QR0mH9LrQ&pid=ImgRaw&r=0" alt="Cyberpunk 2077">',
+                text: `After the 2.0 update, this build makes you unstoppable. 
+Focus on Intelligence and Cool attributes first, then grab these specific quickhacks in order. 
+By level 30, you can clear entire buildings without stepping inside.
+
+Attribute Priority:
+1. Intelligence to 20 (for legendary quickhacks)
+2. Cool to 15 (for stealth bonuses)
+3. Technical Ability to 12 (for cyberware)
+
+Essential Quickhacks:
+- Ping (reveals all enemies through walls)
+- Contagion (spreads to nearby enemies)
+- Short Circuit (massive damage to mechanical enemies)
+- Suicide (instant kill on human enemies)
+
+Cyberware Must-Haves:
+- Tetratronic Rippler Mk.4 (reduces RAM costs)
+- Memory Boost (increases RAM recovery)
+- Cyberdeck: NetWatch Netdriver Mk.5 (best for combat quickhacks)
+
+Strategy: Use Ping to locate enemies, then chain Contagion with Short Circuit. For tougher enemies, use Suicide. With the right perks, you can clear entire encounters without being detected.`,
+                likes: '3,781'
+            },
+            'lords-fallen': {
+                title: 'Umbral Ending Speedrun Route',
+                game: 'Lords of the Fallen',
+                author: 'SoulsSpeedrunner',
+                avatar: 'https://randomuser.me/api/portraits/men/68.jpg',
+                date: 'Posted on October 5, 2023',
+                media: '<iframe src="https://www.youtube.com/embed/example2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                text: `This optimized path skips 60% of the game while still achieving the secret Umbral ending. 
+Requires precise jumps and enemy skips. 
+The key is to grab the Shadow Gem early from the hidden chest in the Catacombs.
+
+Route Breakdown:
+1. Skip the first boss by using the ledge glitch near the starting area.
+2. Rush to the Catacombs - the Shadow Gem is in a hidden chest behind a breakable wall.
+3. Use the gem to access Umbral areas early, skipping several required bosses.
+
+Essential Items:
+- Shadow Gem (obviously)
+- Lightfoot Ring (reduces fall damage for skips)
+- Rogue's Cloak (makes you harder to detect)
+
+Time Saves:
+- Cathedral Skip: Saves 25 minutes
+- Swamp Skip: Saves 15 minutes
+- Dual Boss Skip: Saves 30 minutes
+
+With this route, my personal best is 1 hour 42 minutes for the Umbral ending. The world record is 1 hour 28 minutes.`,
+                likes: '2,045'
+            },
+            'gta5': {
+                title: 'Cayo Perico Elite Challenge Every Time',
+                game: 'GTA 5',
+                author: 'HeistMaster',
+                avatar: 'https://randomuser.me/api/portraits/men/90.jpg',
+                date: 'Posted on July 18, 2023',
+                media: '<img src="https://www.newgamenetwork.com/images/uploads/gallery/GTA5/gta5_05.jpg" alt="GTA 5">',
+                text: `My foolproof method to complete the Cayo Perico heist in under 10 minutes with full bags. 
+Uses the drainage tunnel entry but with a specific weapon loadout that makes the compound guards trivial. 
+Works regardless of primary target.
+
+Preparation:
+- Weapons: Aggressor (best for headshots)
+- Equipment: Suppressors (obviously)
+- Vehicle: Longfin (for drainage tunnel approach)
+
+Route:
+1. Enter via drainage tunnel (swim from main dock)
+2. Head straight to office - take out 3 guards along the way
+3. Grab primary target and safe contents
+4. Exit via main gate - head to airstrip for secondary loot
+5. Escape via swimming (fastest method)
+
+Guard Patterns:
+- The first guard near the stairs always looks left then right
+- The office guard patrols in a predictable 20-second loop
+- The juggernaut can be avoided completely
+
+With this method, I consistently complete Elite Challenge with 5-7 minutes to spare.`,
+                likes: '5,128'
+            },
+            'uncharted4': {
+                title: 'Crushing Difficulty Cheese Spots',
+                game: 'Uncharted 4',
+                author: 'TreasureHunter',
+                avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
+                date: 'Posted on August 3, 2023',
+                media: '<iframe src="https://www.youtube.com/embed/example3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                text: `Discover all the "safe spots" where enemies can't hit you in each combat encounter. 
+These positions let you pick off enemies without taking damage, making Crushing difficulty much more manageable. 
+Particularly useful in the ship graveyard chapter.
+
+Key Cheese Spots:
+1. Ship Graveyard: Behind the large anchor near the starting area
+2. Madagascar Chase: On top of the blue truck
+3. Auction Hall: Behind the leftmost pillar when entering
+4. Island Battle: On the rocks near the waterfall
+
+Weapon Recommendations:
+- M14 (best for long-range picks)
+- Pistole (for close encounters)
+- Grenades (for flushing enemies out)
+
+General Strategy:
+- Always look for elevated positions
+- Use cover-to-cover movement to reach safe spots
+- Prioritize snipers and grenadiers first
+- Be patient - enemies will eventually expose themselves
+
+With these spots, I completed Crushing without dying more than 3 times in any encounter. The ship graveyard went from impossible to easy!`,
+                likes: '1,876'
+            }
+        };
+
+        // Open modal
+        submitTipBtn.addEventListener('click', () => {
+            submitTipModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close modal
+        closeModalBtn.addEventListener('click', () => {
+            submitTipModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close full review modal
+        closeFullReviewBtn.addEventListener('click', () => {
+            fullReviewModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === submitTipModal) {
+                submitTipModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (e.target === fullReviewModal) {
+                fullReviewModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Filter tips by game
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const game = btn.dataset.game;
+                
+                tipCards.forEach(card => {
+                    if (game === 'all' || card.dataset.game === game) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Like button functionality
+        likeBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const likeCount = btn.querySelector('span');
+                const isLiked = btn.classList.contains('liked');
+                
+                if (isLiked) {
+                    btn.classList.remove('liked');
+                    likeCount.textContent = (parseInt(likeCount.textContent) - 1).toString();
+                } else {
+                    btn.classList.add('liked');
+                    likeCount.textContent = (parseInt(likeCount.textContent) + 1).toString();
+                }
+            });
+        });
+
+        // Save button functionality
+        saveBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isSaved = btn.classList.contains('saved');
+                
+                if (isSaved) {
+                    btn.classList.remove('saved');
+                    btn.querySelector('span').textContent = 'Save';
+                } else {
+                    btn.classList.add('saved');
+                    btn.querySelector('span').textContent = 'Saved';
+                }
+            });
+        });
+
+        // Media type selection
+        mediaOptions.forEach(option => {
+            option.addEventListener('change', () => {
+                if (option.value === 'none') {
+                    mediaInputContainer.style.display = 'none';
+                    mediaUrlInput.required = false;
+                    previewImage.style.display = 'none';
+                } else {
+                    mediaInputContainer.style.display = 'block';
+                    mediaUrlInput.required = true;
+                    
+                    if (option.value === 'image') {
+                        mediaUrlInput.placeholder = 'Paste image URL';
+                        mediaUrlInput.addEventListener('input', updateImagePreview);
+                    } else if (option.value === 'youtube') {
+                        mediaUrlInput.placeholder = 'Paste YouTube video URL (e.g., https://youtu.be/...)';
+                        mediaUrlInput.removeEventListener('input', updateImagePreview);
+                        previewImage.style.display = 'none';
+                    } else if (option.value === 'twitch') {
+                        mediaUrlInput.placeholder = 'Paste Twitch clip URL (e.g., https://clips.twitch.tv/...)';
+                        mediaUrlInput.removeEventListener('input', updateImagePreview);
+                        previewImage.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Update image preview
+        function updateImagePreview() {
+            const url = mediaUrlInput.value;
+            if (url) {
+                previewImage.src = url;
+                previewImage.style.display = 'block';
+                previewImage.onerror = () => {
+                    previewImage.style.display = 'none';
+                };
+            } else {
+                previewImage.style.display = 'none';
+            }
+        }
+
+        // Show success notification
+        function showSuccessNotification() {
+            successNotification.classList.add('show');
+            setTimeout(() => {
+                successNotification.classList.remove('show');
+            }, 5000);
+        }
+
+        // Show confirmation page
+        function showConfirmationPage(tipData) {
+            mainContent.style.display = 'none';
+            confirmationPage.style.display = 'block';
+            submitTipBtn.style.display = 'none';
+            
+            confirmationTitle.textContent = tipData.title;
+            confirmationGame.textContent = document.querySelector(`#gameSelect option[value="${tipData.game}"]`).textContent;
+            
+            const now = new Date();
+            confirmationTime.textContent = now.toLocaleString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        // Hide confirmation page
+        function hideConfirmationPage() {
+            mainContent.style.display = 'block';
+            confirmationPage.style.display = 'none';
+            submitTipBtn.style.display = 'flex';
+        }
+
+        // Show full review
+        function showFullReview(game) {
+            const review = fullReviews[game];
+            
+            fullReviewTitle.textContent = review.title;
+            fullReviewGame.textContent = review.game;
+            document.querySelector('.full-review-avatar').src = review.avatar;
+            document.querySelector('.full-review-author div:first-child').textContent = review.author;
+            document.querySelector('.full-review-date').textContent = review.date;
+            fullReviewMedia.innerHTML = review.media;
+            fullReviewText.textContent = review.text;
+            document.querySelector('.full-review-likes span').textContent = `${review.likes} Likes`;
+            
+            fullReviewModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Tip card click handler
+        tipCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Don't open full review if clicking on action buttons
+                if (e.target.closest('.action-btn')) {
+                    return;
+                }
+                
+                const game = card.dataset.game;
+                showFullReview(game);
+            });
+        });
+
+        // Form submission
+        tipForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const tipData = {
+                title: document.getElementById('tipTitle').value,
+                game: document.getElementById('gameSelect').value,
+                content: document.getElementById('tipContent').value,
+                mediaType: document.querySelector('input[name="mediaType"]:checked').value,
+                mediaUrl: mediaUrlInput.value
+            };
+            
+            console.log('Tip submitted:', tipData);
+            
+            showSuccessNotification();
+            showConfirmationPage(tipData);
+            
+            submitTipModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            tipForm.reset();
+            mediaInputContainer.style.display = 'none';
+            previewImage.style.display = 'none';
+        });
+
+        // Submit another tip button
+        submitAnotherBtn.addEventListener('click', () => {
+            hideConfirmationPage();
+            submitTipModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Back to home button
+        backToHomeBtn.addEventListener('click', hideConfirmationPage);
+
+        // Search functionality
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            tipCards.forEach(card => {
+                const title = card.querySelector('.tip-title').textContent.toLowerCase();
+                const content = card.querySelector('.tip-text').textContent.toLowerCase();
+                const author = card.querySelector('.tip-author span').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm) || author.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Demo mode - remove in production
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('demo')) {
+                const demoData = {
+                    title: "Ancient Tech Weapon Locations",
+                    game: "egypt-wars",
+                    content: "Sample tip content...",
+                    mediaType: "image",
+                    mediaUrl: "https://example.com/image.jpg"
+                };
+                showConfirmationPage(demoData);
+            }
+        });
+    </script>
+</body>
+</html>
